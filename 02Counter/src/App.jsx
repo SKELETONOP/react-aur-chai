@@ -9,15 +9,25 @@ function App() {
 
   // let counter = 5
 
-  const addValue = ()=>{
-    if (counter < 20){
-    counter = counter + 1
-    setCounter(counter)
-    console.log("Clicked");
-  }else{
-    alert("Hit the Highest Point")
+  // const addValue = ()=>{
+  //   if (counter < 20){
+  //   counter = counter + 1
+  //   setCounter(counter)
+  //   console.log("Clicked");
+  // }else{
+  //   alert("Hit the Highest Point")
+  // }
+  // }
+
+  //interview question
+  const addValue =() => {
+    // counter = counter +1
+    setCounter (prevCounter => prevCounter+1)
+    setCounter (prevCounter => prevCounter+1)
+    setCounter (prevCounter => prevCounter+1)
+    setCounter (prevCounter => prevCounter+1)
   }
-  }
+
   const removeValue = ()=>{
     if(counter > 0){
     counter = counter - 1
