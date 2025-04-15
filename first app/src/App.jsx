@@ -3,11 +3,17 @@
 // import viteLogo from '/vite.svg'
 // import './App.css'
 
+import Chai from "./chai.jsx"
+
 function App() {
   
 
   return (
-    <h1>chai aur react with vite</h1>
+    <>
+   <Chai />
+   <h1>Chai Aur React</h1>
+   <p>Naresh Gouttam</p>
+   </>
   )
 }
 
