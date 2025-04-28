@@ -1,15 +1,13 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyinfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState("");
   const BackgroundImage =
     "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
@@ -25,8 +23,14 @@ function App() {
   };
 
   const convert = () => {
-    setConvertedAmount(amount * currencyInfo[to]);
+    const result = amount * currencyInfo[to]
+    setConvertedAmount(Number(result.toFixed(2)));
   };
+
+  useEffect (()=>{
+    convert()
+  },[amount, from, to, currencyInfo])
+
 
   return (
     <div
@@ -62,7 +66,7 @@ function App() {
                   label="From"
                   amount={amount}
                   currencyOptions={options}
-                  onCurrencyChange={(currency) => setAmount(amount)}
+                  onCurrencyChange={(currency) => setFrom(currency)}
                   selectCurrency={from}
                   onAmountChange={(amount) => setAmount(amount)}
                 />
@@ -70,10 +74,10 @@ function App() {
               <div className="relative w-full h-0.5">
                 <button
                   type="button"
-                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
+                  className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-black rounded-md bg-white text-black px-2 py-0.5"
                   onClick={swap}
                 >
-                  Swap
+                  Swap 🔁
                 </button>
               </div>
               <div className="w-full mt-1 mb-4">
@@ -89,6 +93,7 @@ function App() {
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
+
               >
                 Convert {from.toUpperCase()} TO {to.toUpperCase()}
               </button>
