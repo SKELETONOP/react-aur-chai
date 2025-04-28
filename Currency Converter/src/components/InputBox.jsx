@@ -9,6 +9,7 @@ function InputBox({
   selectCurrency = "Usd",
   amountDisable = false,
   currencyDisable = false,
+  placeholder = "Amount",
   className = "",
 }) {
 
@@ -23,7 +24,7 @@ function InputBox({
           id={amountInputId}
           className="outline-none w-full bg-transparent py-1.5"
           type="number"
-          placeholder="Amount"
+          placeholder={placeholder}
           disabled={amountDisable}
           value={amount}
           onChange={(e) =>

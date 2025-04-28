@@ -23,14 +23,17 @@ function App() {
   };
 
   const convert = () => {
-    const result = amount * currencyInfo[to]
+    if (!amount) {
+      setConvertedAmount(""); // if no amount entered, clear convertedAmount
+      return;
+    }
+    const result = amount * currencyInfo[to];
     setConvertedAmount(Number(result.toFixed(2)));
   };
 
-  useEffect (()=>{
-    convert()
-  },[amount, from, to, currencyInfo])
-
+  useEffect(() => {
+    convert();
+  }, [amount, from, to, currencyInfo]);
 
   return (
     <div
@@ -69,6 +72,7 @@ function App() {
                   onCurrencyChange={(currency) => setFrom(currency)}
                   selectCurrency={from}
                   onAmountChange={(amount) => setAmount(amount)}
+                  placeholder="Enter The Amount"
                 />
               </div>
               <div className="relative w-full h-0.5">
@@ -88,12 +92,12 @@ function App() {
                   onCurrencyChange={(currency) => setTo(currency)}
                   selectCurrency={to}
                   amountDisable
+                  placeholder="Converted Amount"
                 />
               </div>
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
-
               >
                 Convert {from.toUpperCase()} TO {to.toUpperCase()}
               </button>
