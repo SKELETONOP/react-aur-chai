@@ -19,15 +19,25 @@ export default function Footer() {
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
-                            <ul className="text-gray-500 font-medium">
-                                <li className="mb-4">
+                            <ul className="text-gray-500 font-medium flex flex-col justify-between">
+                                <li className="mb-3">
                                     <NavLink to="/" className={({isActive})=>`${isActive ? "text-orange-700" : "text-gray-700"}`}>
                                         Home
                                     </NavLink>
                                 </li>
-                                <li>
+                                <li className="mb-3">
                                     <NavLink to="/about" className={({isActive})=>`${isActive ? "text-orange-700" : "text-gray-700"}`}>
                                         About
+                                    </NavLink>
+                                </li>
+                                <li className="mb-3">
+                                    <NavLink to="/contact-us" className={({isActive})=>`${isActive ? "text-orange-700" : "text-gray-700"}`}>
+                                        Contact Us
+                                    </NavLink>
+                                </li>
+                                <li className="mb-0">
+                                    <NavLink to="/github" className={({isActive})=>`${isActive ? "text-orange-700" : "text-gray-700"}`}>
+                                        Github
                                     </NavLink>
                                 </li>
                             </ul>
@@ -37,7 +47,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
+                                        href="https://github.com/SKELETONOP"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
@@ -79,7 +89,7 @@ export default function Footer() {
                         . All Rights Reserved.
                     </span>
                     <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-                        <Link to="#" className="text-gray-500 hover:text-gray-900">
+                        <Link to="https://www.facebook.com/naresh.gouttam/" target = "_blank" className="text-gray-500 hover:text-gray-900">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
